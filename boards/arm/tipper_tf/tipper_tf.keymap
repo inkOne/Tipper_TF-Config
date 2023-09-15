@@ -10,12 +10,9 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define BAS_L 0
-#define BAS_CM_L 1
-#define SYM_L 2
-#define NAV_L 3
-#define NUM_L 4
-#define CFG_L 5
-#define BLE_L 6
+#define SYM_L 1
+#define NAV_L 2
+#define FUN_L 3S
 
 // repeating space/backspace
 &lt { quick_tap_ms = <200>; };
@@ -27,63 +24,63 @@
         combo_slash {
             timeout-ms = <50>;
             key-positions = <0 10>;
-            layers = <BAS_L BAS_CM_L>;
+            layers = <BAS_L >;
             bindings = <&kp SLASH>;
             };
         combo_lBracket {
             timeout-ms = <50>;
             key-positions = <1 11>;
-            layers = <BAS_L BAS_CM_L>;
+            layers = <BAS_L >;
             bindings = <&kp LEFT_BRACKET>;
             };
         combo_lBrace {
             timeout-ms = <50>;
             key-positions = <2 12>;
-            layers = <BAS_L BAS_CM_L>;
+            layers = <BAS_L >;
             bindings = <&kp LEFT_BRACE>;
             };
         combo_lParanthesis {
             timeout-ms = <50>;
             key-positions = <3 13>;
-            layers = <BAS_L BAS_CM_L>;
+            layers = <BAS_L >;
             bindings = <&kp LEFT_PARENTHESIS>;
             };
         combo_equal {
             timeout-ms = <50>;
             key-positions = <4 14>;
-            layers = <BAS_L BAS_CM_L>;
+            layers = <BAS_L >;
             bindings = <&kp EQUAL>;
             };
 
         combo_asterix {
             timeout-ms = <50>;
             key-positions = <5 15>;
-            layers = <BAS_L BAS_CM_L>;
+            layers = <BAS_L >;
             bindings = <&kp ASTERISK>;
             };
 
         combo_rParanthesis {
             timeout-ms = <50>;
             key-positions = <6 16>;
-            layers = <BAS_L BAS_CM_L>;
+            layers = <BAS_L >;
             bindings = <&kp RIGHT_PARENTHESIS>;
             };
         combo_rBrace {
             timeout-ms = <50>;
             key-positions = <7 17>;
-            layers = <BAS_L BAS_CM_L>;
+            layers = <BAS_L >;
             bindings = <&kp RIGHT_BRACE>;
             };
         combo_rBracket {
             timeout-ms = <50>;
             key-positions = <8 18>;
-            layers = <BAS_L BAS_CM_L>;
+            layers = <BAS_L >;
             bindings = <&kp RIGHT_BRACKET>;
             };
         combo_bSlash {
             timeout-ms = <50>;
             key-positions = <9 19>;
-            layers = <BAS_L BAS_CM_L>;
+            layers = <BAS_L >;
             bindings = <&kp BACKSLASH>;
             };
 
@@ -103,16 +100,11 @@
             bindings = <&kp ESCAPE>;
             };
 
-        combo_cfgLayer {
-            timeout-ms = <50>;
-            key-positions = <31 32>;
-            bindings = <&mo CFG_L>;
-            };
 
         combo_bleLayer {
             timeout-ms = <50>;
             key-positions = <30 31>;
-            bindings = <&mo BLE_L>;
+            bindings = <&mo FUN_L>;
             };
 
         combo_capsWord {
@@ -161,28 +153,13 @@
 // ------|    Spc    |    Nav    |     |    Sym    |    Ent    |------
 //       -------------------------     -------------------------
             bindings = <
-                &kp Q       &kp W       &kp E       &kp R       &kp T                   &kp Y       &kp U       &kp I       &kp O       &kp P
-                &hm LSHFT A &hm LGUI S  &hm LALT D  &hm LCTRL F &kp G                   &kp H       &hm RCTRL J &hm RALT K  &hm RGUI L  &hm RSHFT QUOT
-                &kp Z       &kp X       &kp C       &kp V       &kp B                   &kp N       &kp M       &kp COMMA   &kp DOT     &kp SEMI
-                                          &lt NUM_L SPACE  &mo NAV_L                  &mo SYM_L   &kp RET 
+        &kp X             &kp J      &kp O         &kp V        &kp Z             &kp MINUS    &kp G        &kp C         &kp L          &kp Y         
+      &am LCTRL H   &am LGUI A    &am LALT E    &as LSHFT I   &kp U             &kp D          &as RSHFT T   &am RALT R   &am RGUI N    &am RCTRL S   
+       &kp K         &kp Q         &kp SQT        &kp LBKT       &kp SEMI         &kp B          &kp P        &kp W           &kp M       &kp F      
+                                              &kp TAB       &lt SYM SPACE     &lt NAV RET   &lt MET BSPC
             >;
         };
     
-        colemak_layer {
-            label = "Base Colemak";
-// -------------------------------     -------------------------------
-// |  Q  |  W  |  F  |  P  |  G  |  -  |  J  |  L  |  U  |  Y  |  '  | 
-// |A sft|R win|S alt|T ctl|  D  |     |  H  |N ctl|E alt|I win|O sft| 
-// |  Z  |  X  |  C  |  V  |  B  |  -  |  K  |  M  |  ,  |  .  |  ;  | 
-// ------|    Spc    |    Nav    |     |    Sym    |    Ent    |------
-//       -------------------------     -------------------------
-            bindings = <
-                &kp Q       &kp W       &kp F       &kp P       &kp G                   &kp J       &kp L       &kp U       &kp Y       &kp QUOT
-                &hm LSHFT A &hm LGUI R  &hm LALT S  &hm LCTRL T &kp D                   &kp H       &hm RCTRL N &hm RALT E  &hm RGUI I  &hm RSHFT O
-                &kp Z       &kp X       &kp C       &kp V       &kp B                   &kp K       &kp M       &kp COMMA   &kp DOT     &kp SEMI
-                                          &lt NUM_L SPACE  &mo NAV_L                  &mo SYM_L   &kp RET 
-            >;
-        };
 
         sym_layer {
             label = "Symbol";
@@ -193,10 +170,10 @@
 // ------|           |    CFG    |     |           |           |------
 //       -------------------------     -------------------------
             bindings = <
-                &kp GRAVE   &kp CARET   &kp AT      &kp DOLLAR  &kp TILDE               &none       &none       &none       &none       &none
-                &kp AMPS    &kp EXCL    &kp PLUS    &kp UNDER   &kp HASH                &kp PG_UP   &none       &none       &none       &none
-                &kp PIPE    &kp QMARK   &kp MINUS   &kp PERCENT &none                   &kp PG_DN   &none       &none       &none       &none
-                                                    &none       &none                   &none       &none
+        &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT         &kp CARET     &kp AMPS      &kp LS(N8)     &kp LPAR     &kp RPAR       
+           &trans        &trans        &kp COMMA        &kp DOT     &kp FSLH            &kp KP_MULTIPLY &kp NON_US_HASH &kp LA(N5) &kp LA(N6)  &kp GRAVE      
+        &trans        &trans        &kp LS(COMMA)     &kp LS(DOT)        &trans            &kp PIPE      &kp PLUS      &kp LA(N8)    &kp LA(N9)    &kp RBKT      
+                                              &kp TAB       &lt SYM SPACE     &lt NAV RET   &lt MET BSPC
             >;
         };
         
@@ -209,47 +186,15 @@
 // ------|           |           |     |    CFG    |           |------
 //       -------------------------     -------------------------
             bindings = <
-                &none       &none       &none       &none       &none                   &none       &kp PG_UP   &kp UP      &kp PG_DN   &kp DEL
-                &kp LSHFT   &kp LGUI    &kp LALT    &kp LCTRL   &none                   &kp HOME    &kp LEFT    &kp DOWN    &kp RIGHT   &kp END
-                &none       &none       &none       &none       &none                   &none       &none       &none       &none       &none
-                                                    &none       &none                   &none       &none
+           &kp N1        &kp N2        &kp N3        &kp N4         &kp N5           &kp N6        &kp N7        &kp N8        &kp N9         &kp N0       
+          &kp F1        &kp F2        &kp F3        &kp F4        &kp F5            &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &trans        
+            &kp F6        &kp F7        &kp F8        &kp F9        &kp F10           &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &trans        
+                                                              &kp TAB       &lt SYM SPACE     &lt NAV RET   &lt MET BSPC  
             >;
         };
 
-        num_layer {
-            label = "Numbers and F-Keys";
-// -------------------------------     -------------------------------
-// |     |  F9 | F10 | F11 | F12 |  -  |  +  | num7| num8| num9|  /  | 
-// |     |  F5 |  F6 |  F7 |  F8 |     |  0  | num4| num5| num6|  .  | 
-// |     |  F1 |  F2 |  F3 |  F4 |  -  |  -  | num1| num2| num3|  *  | 
-// ------|           |           |     |     =     |   ENTER   |------
-//       -------------------------     -------------------------
-            bindings = <
-                &none       &kp F9      &kp F10     &kp F11     &kp F12                 &kp KP_PLUS &kp KP_N7   &kp KP_N8   &kp KP_N9   &kp KP_SLASH 
-                &none       &kp F5      &kp F6      &kp F7      &kp F8                  &kp KP_N0   &kp KP_N4   &kp KP_N5   &kp KP_N6   &kp KP_DOT
-                &none       &kp F1      &kp F2      &kp F3      &kp F4                  &kp KP_MINUS &kp KP_N1  &kp KP_N2   &kp KP_N3   &kp KP_MULTIPLY
-                                                    &none       &none                   &kp KP_EQUAL &kp KP_ENTER
-            >;
-        };
-        
-        cfg_layer {
-            label = "Configuration";
-// -------------------------------     -------------------------------
-// |     |     |     |     |     |  -  |PSCRN|     |  ü  |     |     | 
-// |  ä  |     |  ß  |     |     |     |     |     |     |     |  oe | 
-// |numlk|     |     |     |     |  -  |     |     |     |     |     | 
-// ------|           |           |     |           |           |------
-//       -------------------------     -------------------------
-            bindings = <
-                &kp C       &none       &to BAS_L    &to BAS_CM_L  &kp PSCRN               &none       &none       &none       &none       &none
-                &none       &none       &none        &none         &none                   &none       &none       &none       &none       &none
-                &kp KP_NUM  &none       &none        &none         &none                   &none       &none       &none       &none       &none
-                                                     &none         &none                   &none       &none
-            >;
-        };
-        
-        ble_layer {
-            label = "BLE stuff";
+        function_layer {
+            label = "FUN stuff";
 // -------------------------------     -------------------------------
 // |     |     |     |     |     |  -  | USB | BLE |     |     |BTCLR| 
 // |     |     |     |     |     |     |     |     |     |     |     | 
@@ -257,10 +202,10 @@
 // ------|           |           |     |           |           |------
 //       -------------------------     -------------------------
             bindings = <
-                &kp B       &none       &reset      &none       &bootloader         &out OUT_USB &out OUT_BLE &none        &none        &bt BT_CLR
-                &none       &none       &none       &none       &none               &none        &none        &none        &none        &none
-                &none       &none       &none       &none       &none               &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
-                                                    &none       &none               &none       &none
+      &trans        &trans        &trans        &trans        &trans         &trans           &trans        &trans       &trans        &trans        
+      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4   &kp C_PREV       &kp C_PP      &kp C_NEXT  &trans        &trans        
+      &kp CAPS      &kp C_BRI_DN  &kp C_BRI_UP  &trans        &bt BT_CLR     &kp C_MUTE       &kp C_VOL_DN &kp C_VOL_UP    &trans        &trans        
+                                                              &kp TAB       &lt SYM SPACE     &lt NAV RET   &lt MET BSPC  
             >;
         };
     };
